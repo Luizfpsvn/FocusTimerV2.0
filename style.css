@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --primary-color: hsl(240, 6%, 21%);
+
+  --bg-white: hsl(0, 0%, 100%);
+  --bg-gray: hsl(240, 9%, 89%);
+  --bg-blue: hsl(194, 97%, 31%);
+}
+
+body {
+  font-size: 10rem;
+  font-family: 'Roboto', sans-serif;
+  color: var(--primary-color);
+  display: grid;
+
+  min-height: 100vh;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-white);
+}
+
+.configTimer {
+  display: flex;
+  flex-direction: column;
+
+  width: 32rem;
+  height: 21rem;
+
+  justify-content: center;
+  align-content: center;
+  gap: 4.8rem;
+}
+
+.timer {
+  font-size: 10rem;
+  font-weight: 700;
+}
+
+.darkTimer {
+  color: var(--bg-white);
+}
+
+.controls {
+  display: flex;
+  gap: 4rem;
+}
+
+.hide {
+  display: none;
+}
+
+.controls button {
+  background-color: transparent;
+  border: none;
+}
+
+.soundButtons {
+  margin-left: 19rem;
+
+  justify-content: center;
+  align-content: center;
+}
+
+.soundButtons button {
+  width: 13rem;
+  height: 15rem;
+  margin-bottom: 3.2rem;
+
+  background: var(--bg-gray);
+  border-radius: 24px;
+  border: none;
+}
+
+.soundButtons .selectedSound {
+  background-color: var(--bg-blue);
+  fill: var(--bg-white);
+}
+
+.controls {
+  background-color: transparent;
+  border: none;
+}
