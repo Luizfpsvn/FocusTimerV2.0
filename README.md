@@ -24,12 +24,15 @@
 ## About
 PT-BR:
 Este temporizador de foco é feito para adicionar algum controle de tempo, em suas atividades diárias, como estudo, pausa, projetos, lazer e tudo o que você quiser usá-lo!
+aqui você pode ver funcionando: https://luizfpsvn.github.io/FocusTimerV2.0/
 
 Este é um projeto em construção, futuramente irei adicionar um Dark Mode e algumas ideias que tive para tornar este projeto ainda mais útil.
 EN:
 This focus timer is made to add some time control, in your daily activities, like study, pause, projects, leisure time and everything you want to use it for!
 
 This a project under construction, in the future i will add a Dark Mode and some ideas i had to make this project even more useful.
+
+here you can see it working: https://luizfpsvn.github.io/FocusTimerV2.0/
 
 ## Tech Stack
 <img src="https://img.shields.io/badge/Css3-05122A?style=flat&logo=css3" alt="css3 Badge" height="25">&nbsp;
