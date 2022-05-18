@@ -8,26 +8,44 @@
   font-size: 62.5%;
 
   --primary-color: hsl(240, 6%, 21%);
+  --secondary-color: hsl(240, 7%, 78%);
+  
+  --green: #008000;
+  --yellow: #cd853f;
+  --red: #ff0000;
+  --purple: #800080;
 
   --bg-white: hsl(0, 0%, 100%);
   --bg-gray: hsl(240, 9%, 89%);
+  --bg-Darker-gray: hsl(240, 6%, 17%);
   --bg-blue: hsl(194, 97%, 31%);
 }
 
 body {
+  margin-left: 1rem;
   font-size: 10rem;
   font-family: 'Roboto', sans-serif;
   color: var(--primary-color);
   display: grid;
+}
 
-  min-height: 100vh;
+header {
+  height: fit-content;
+  justify-self: end;
+  padding: 6rem 6rem 0 0;
+}
+
+header button {
+  background-color: transparent;
+  border: none;
 }
 
 main {
+  width: clamp(41rem, 20rem +70vw, 82.1rem);
+  height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--bg-white);
 }
 
 .configTimer {
@@ -37,8 +55,8 @@ main {
   width: 32rem;
   height: 21rem;
 
-  justify-content: center;
-  align-content: center;
+  justify-content: flex-end;
+  align-content: flex-end;
   gap: 4.8rem;
 }
 
@@ -47,13 +65,34 @@ main {
   font-weight: 700;
 }
 
-.darkTimer {
-  color: var(--bg-white);
-}
-
 .controls {
   display: flex;
   gap: 4rem;
+}
+
+button.play:hover,
+button.pause:hover,
+button.stop:hover,
+button.timeUp:hover,
+button.timeDown:hover {
+  transform: scale(1.1);
+}
+
+button.play:hover svg path {
+  fill: var(--green);
+}
+
+button.pause:hover svg path {
+  fill: var(--yellow);
+}
+
+button.stop:hover svg path {
+  fill: var(--red);
+}
+
+button.timeUp:hover svg path,
+button.timeDown:hover svg path {
+ fill: var(--purple);
 }
 
 .hide {
@@ -77,9 +116,55 @@ main {
   height: 15rem;
   margin-bottom: 3.2rem;
 
-  background: var(--bg-gray);
+  /* background: var(--bg-gray); */
   border-radius: 24px;
   border: none;
+}
+
+button.forest:hover,
+button.rain:hover,
+button.coffeShop:hover,
+button.bonfire:hover {
+  transform: scale(1.1);
+}
+
+button.forest:hover svg path,
+button.rain:hover svg path,
+button.coffeShop:hover svg path,
+button.bonfire:hover svg path {
+  fill: var(--bg-white);
+}
+
+input[type='range'] {
+  margin-top: 3.2rem;
+  -webkit-appearance: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  width: 9rem;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+  height: 0.4rem;
+  background: var(--primary-color);
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 1.6rem;
+  width: 1.6rem;
+  border-radius: 9rem;
+  background-color: var(--primary-color);
+  margin-top: -6px;
+}
+
+input.selectedSound[type="range"]::-webkit-slider-runnable-track,
+input.selectedSound[type="range"]::-webkit-slider-thumb {
+  background-color: var(--bg-white);
+}
+
+button:hover input::-webkit-slider-runnable-track,
+button:hover input::-webkit-slider-thumb {
+  background-color: var(--bg-white);
 }
 
 .soundButtons .selectedSound {
@@ -90,4 +175,18 @@ main {
 .controls {
   background-color: transparent;
   border: none;
+}
+
+.darkMode {
+  background-color: black;
+  color: var(--bg-white);
+  fill: #c4c4cc;
+}
+
+.darkTimer {
+  color: var(--bg-white);
+}
+
+.darkModeSoundButtons {
+  background: var(--bg-Darker-gray);
 }

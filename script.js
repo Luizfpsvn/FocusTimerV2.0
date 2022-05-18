@@ -5,6 +5,23 @@ const buttonStop = document.querySelector('.stop')
 const buttonTimeUp = document.querySelector('.timeUp')
 const buttonTimeDown = document.querySelector('.timeDown')
 
+//Timer Buttons Color
+const playFill = document.querySelector('.playFill')
+const pauseFill = document.querySelector('.pauseFill')
+const stopFill = document.querySelector('.stopFill')
+const timeUpFill = document.querySelector('.timeUpFill')
+const timeDownFill = document.querySelector('.timeDownFill')
+
+//Inputs customization
+const inputForest = document.querySelector('.inputForest')
+const inputRain = document.querySelector('.inputRain')
+const inputCoffeShop = document.querySelector('.inputCoffeShop')
+const inputBonfire = document.querySelector('.inputBonfire')
+
+//Theme Buttons
+const sunButton = document.querySelector('.sun')
+const moonButton = document.querySelector('.moon')
+
 //Timer
 let minutes = 25
 let seconds = 0
@@ -12,7 +29,7 @@ let timerTimerOut
 const minutesDisplay = document.querySelector('.minutes')
 const secondsDisplay = document.querySelector('.seconds')
 
-//SoundButtons
+//Sound Buttons
 const buttonForestSound = document.querySelector('.forest')
 const buttonRainSound = document.querySelector('.rain')
 const buttonCoffeShopSound = document.querySelector('.coffeShop')
@@ -35,6 +52,48 @@ const buttonPress = new Audio(
 const timeIsOver = new Audio(
   'https://github.com/maykbrito/automatic-video-creator/blob/master/audios/kichen-timer.mp3?raw=true'
 )
+
+function lightTheme() {
+  sunButton.classList.remove('hide')
+  moonButton.classList.add('hide')
+
+  playFill.classList.remove('darkMode')
+  pauseFill.classList.remove('darkMode')
+  stopFill.classList.remove('darkMode')
+  timeUpFill.classList.remove('darkMode')
+  timeDownFill.classList.remove('darkMode')
+
+  document.querySelector('body').classList.remove('darkMode')
+  document.querySelector('.forest').classList.remove('darkModeSoundButtons')
+  document.querySelector('.rain').classList.remove('darkModeSoundButtons')
+  document.querySelector('.coffeShop').classList.remove('darkModeSoundButtons')
+  document.querySelector('.bonfire').classList.remove('darkModeSoundButtons')
+  forestFill.classList.remove('darkMode')
+  rainFill.classList.remove('darkMode')
+  coffeShopFill.classList.remove('darkMode')
+  bonfireFill.classList.remove('darkMode')
+}
+
+function darkTheme() {
+  sunButton.classList.add('hide')
+  moonButton.classList.remove('hide')
+
+  playFill.classList.add('darkMode')
+  pauseFill.classList.add('darkMode')
+  stopFill.classList.add('darkMode')
+  timeUpFill.classList.add('darkMode')
+  timeDownFill.classList.add('darkMode')
+
+  document.querySelector('body').classList.add('darkMode')
+  document.querySelector('.forest').classList.add('darkModeSoundButtons')
+  document.querySelector('.rain').classList.add('darkModeSoundButtons')
+  document.querySelector('.coffeShop').classList.add('darkModeSoundButtons')
+  document.querySelector('.bonfire').classList.add('darkModeSoundButtons')
+  forestFill.classList.add('darkMode')
+  rainFill.classList.add('darkMode')
+  coffeShopFill.classList.add('darkMode')
+  bonfireFill.classList.add('darkMode')
+}
 
 function updateTimerDisplay(minutes, seconds) {
   minutesDisplay.textContent = String(minutes).padStart(2, '0')
@@ -110,6 +169,20 @@ function buttonpress() {
   buttonPress.play()
 }
 
+function inputsremoveColor() {
+  document.querySelector('.inputForest').classList.remove('selectedSound')
+  document.querySelector('.inputRain').classList.remove('selectedSound')
+  document.querySelector('.inputCoffeShop').classList.remove('selectedSound')
+  document.querySelector('.inputBonfire').classList.remove('selectedSound')
+}
+
+function inputsAddColor() {
+  document.querySelector('.inputForest').classList.add('selectedSound')
+  document.querySelector('.inputRain').classList.add('selectedSound')
+  document.querySelector('.inputCoffeShop').classList.add('selectedSound')
+  document.querySelector('.inputBonfire').classList.add('selectedSound')
+}
+
 function soundSelectedForest() {
   buttonForestSound.classList.add('selectedSound')
   buttonRainSound.classList.remove('selectedSound')
@@ -124,6 +197,11 @@ function soundSelectedForest() {
   rainFill.classList.remove('selectedSound')
   coffeShopFill.classList.remove('selectedSound')
   bonfireFill.classList.remove('selectedSound')
+
+  document.querySelector('.inputForest').classList.add('selectedSound')
+  document.querySelector('.inputRain').classList.remove('selectedSound')
+  document.querySelector('.inputCoffeShop').classList.remove('selectedSound')
+  document.querySelector('.inputBonfire').classList.remove('selectedSound')
 }
 
 function soundSelectedRain() {
@@ -140,6 +218,11 @@ function soundSelectedRain() {
   rainFill.classList.add('selectedSound')
   coffeShopFill.classList.remove('selectedSound')
   bonfireFill.classList.remove('selectedSound')
+
+  document.querySelector('.inputForest').classList.remove('selectedSound')
+  document.querySelector('.inputRain').classList.add('selectedSound')
+  document.querySelector('.inputCoffeShop').classList.remove('selectedSound')
+  document.querySelector('.inputBonfire').classList.remove('selectedSound')
 }
 
 function soundSelectedCoffeShop() {
@@ -156,6 +239,11 @@ function soundSelectedCoffeShop() {
   rainFill.classList.remove('selectedSound')
   coffeShopFill.classList.add('selectedSound')
   bonfireFill.classList.remove('selectedSound')
+
+  document.querySelector('.inputForest').classList.remove('selectedSound')
+  document.querySelector('.inputRain').classList.remove('selectedSound')
+  document.querySelector('.inputCoffeShop').classList.add('selectedSound')
+  document.querySelector('.inputBonfire').classList.remove('selectedSound')
 }
 
 function soundSelectedBonfire() {
@@ -172,6 +260,18 @@ function soundSelectedBonfire() {
   rainFill.classList.remove('selectedSound')
   coffeShopFill.classList.remove('selectedSound')
   bonfireFill.classList.add('selectedSound')
+
+  document.querySelector('.inputForest').classList.remove('selectedSound')
+  document.querySelector('.inputRain').classList.remove('selectedSound')
+  document.querySelector('.inputCoffeShop').classList.remove('selectedSound')
+  document.querySelector('.inputBonfire').classList.add('selectedSound')
+}
+
+function setvolume() {
+  forestAudio.volume = inputForest.value / 100
+  rainAudio.volume = inputRain.value / 100
+  coffeShopAudio.volume = inputCoffeShop.value / 100
+  bonfireAudio.volume = inputBonfire.value / 100
 }
 
 function soundsStop() {
@@ -187,7 +287,17 @@ function soundsStop() {
   rainFill.classList.remove('selectedSound')
   coffeShopFill.classList.remove('selectedSound')
   bonfireFill.classList.remove('selectedSound')
+
+  inputsremoveColor()
 }
+
+sunButton.addEventListener('click', function () {
+  darkTheme()
+})
+
+moonButton.addEventListener('click', () => {
+  lightTheme()
+})
 
 buttonPlay.addEventListener('click', function () {
   play()
@@ -221,18 +331,22 @@ buttonTimeDown.addEventListener('click', function () {
 
 buttonForestSound.addEventListener('click', function () {
   soundSelectedForest()
+  setvolume()
 })
 
 buttonRainSound.addEventListener('click', function () {
   soundSelectedRain()
+  setvolume()
 })
 
 buttonCoffeShopSound.addEventListener('click', function () {
   soundSelectedCoffeShop()
+  setvolume()
 })
 
 buttonBonfireSound.addEventListener('click', function () {
   soundSelectedBonfire()
+  setvolume()
 })
 
 buttonForestSound.addEventListener('dblclick', function () {
